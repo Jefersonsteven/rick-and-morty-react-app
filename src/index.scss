@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  font-size: 1.6rem;
+  background-image: url(../public/rick-morty-mobile.jpg);
+  background-size: cover;
+  & #root {
+    background-color: rgba(127, 255, 212, 0.329);
+    backdrop-filter: blur(3px);
+    display: grid;
+    align-items: start;
+    
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+}
+

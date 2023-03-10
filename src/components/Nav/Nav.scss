@@ -1,0 +1,26 @@
+.Nav {
+    display: grid;
+    place-items: center;
+    gap: 30px;
+    background: rgba( 255, 255, 255, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4.5px );
+    border-radius: 10px;
+    border: 3px solid black;
+    padding: 20px;
+  &__search {
+    width: 100%;
+  }
+  
+}
+
+@media (min-width: 630px) {
+  .Nav {
+    width: 90%;
+    grid-template-columns: 1fr 410px;
+    &__search {
+      max-width: 410px;
+      grid-column: 2 / 3;
+    }
+  }
+}
