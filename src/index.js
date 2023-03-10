@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client';
 import './index.scss'
-import { Home } from './views/Home/Home'
-import { About } from './views/About/About'
-import { Detail } from './views/Detail/Detail'
+import { Home } from './routes/Home/Home'
+import { About } from './routes/About/About'
+import { Detail } from './routes/Detail/Detail'
 import { Error } from './Error/Error'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
