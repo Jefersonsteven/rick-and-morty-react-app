@@ -31,10 +31,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <Fragment>
       <AppProvider>
-         <div className="UI" >
-             <Nav/>
-         </div>
-         <RouterProvider router={router}/>
+         <RouterProvider router={router} />
       </AppProvider>
    </Fragment>
 )

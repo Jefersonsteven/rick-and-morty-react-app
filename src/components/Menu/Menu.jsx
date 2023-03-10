@@ -1,19 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Rick } from "../Icons/Rick"
+import "./Menu.scss"
 
 function Menu() {
 
   return(
-    <div>
+    <nav className="Menu">
       <ul>
         <li>
-          <Link to={"/"}>Home</Link>
+          <Link to={"/"} className="Link">
+            <Rick />
+          </Link>
         </li>
         <li>
-          <Link to={"/about"}>Contact</Link>
+          <Link to={"/about"} className="Link">About</Link>
         </li>
       </ul>
-    </div>
+    </nav>
   )
 }
 

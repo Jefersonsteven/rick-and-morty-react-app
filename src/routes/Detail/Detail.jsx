@@ -1,12 +1,17 @@
 
-import React  from 'react';
+import React, { Fragment } from 'react';
 import { DetailUI } from './DetailUI';
-import { AppProvider } from '../../context/AppContext';
+import { Nav } from '../../components/Nav/Nav';
 
 function Detail () {
 
-  return (
+  return (  
+    <Fragment>
+      <div className="UI" >
+           <Nav/>
+      </div>
       <DetailUI />
+    </Fragment>
   );
 }
 

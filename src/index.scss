@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,400;1,500&family=Noto+Sans+JP&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +11,7 @@ html {
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: Monserrat, sans-serif;
   width: 100vw;
   height: 100vh;
   font-size: 1.6rem;
@@ -28,8 +30,6 @@ body {
     overflow-x: hidden;
   }
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,400;1,500&family=Noto+Sans+JP&display=swap');
 
 .UI {
   display: grid;

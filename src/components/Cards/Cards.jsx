@@ -9,7 +9,7 @@ function Cards() {
    return (
       
       <div className='characteres-container'>
-         {!characters.lengh && characters.map(({ id, name, species, gender, image }) => <Card 
+         {characters.map(({ id, name, species, gender, image }) => <Card 
             key={id}
             id={id}
             name={name}

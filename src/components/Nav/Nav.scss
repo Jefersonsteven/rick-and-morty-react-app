@@ -14,13 +14,16 @@
   
 }
 
-@media (min-width: 630px) {
+@media (min-width: 800px) {
   .Nav {
     width: 90%;
     grid-template-columns: 1fr 410px;
     &__search {
       max-width: 410px;
       grid-column: 2 / 3;
+    }
+    &__menu {
+      width: 100%;
     }
   }
 }

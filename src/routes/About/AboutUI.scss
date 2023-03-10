@@ -1,0 +1,121 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,400;1,500&family=Noto+Sans+JP&display=swap');
+
+
+@font-face {
+  font-family: rick and morty;
+  src: url(../../../public/get_schwifty.ttf);
+}
+
+@mixin Card {
+  display: grid;
+  padding: 20px;
+  place-items: center;
+  gap: 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  background: rgba( 255, 255, 255, 0.55 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4.5px );
+  max-width: 700px;
+}
+
+@mixin ButtonA {
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  min-width: 200px;
+  height: 50px;
+  border-radius: 50px;
+  border: 3px solid black;
+  font-weight: bolder;
+  text-decoration: none;
+  color: black;
+  max-width: 200px;
+}
+
+@mixin ButtonAHover {
+  background-color: black;
+  cursor: pointer;
+  color: white;
+}
+
+@mixin title {
+  text-align: center;
+  font-family: rick and morty;
+  letter-spacing: 4.7px;
+  color: #40b5cb;
+  text-shadow: 2px 1px 0px #c0df40;
+  -webkit-text-stroke: 0.1px black;
+}
+
+.AboutUI {
+  display: grid;
+  justify-items: center;
+  font-family: 'Montserrat', sans-serif;
+  gap: 30px;
+  overflow-y: hidden;
+  padding-bottom: 20px;
+  &__game {
+    @include Card;
+    & h2 {
+      @include title;
+    }
+    & a {
+      @include ButtonA;
+    }
+    & a:hover {
+      @include ButtonAHover;
+    }
+  }
+  &__me {
+    @include Card;
+    & h2 {
+      font-family: rick and morty;
+      @include title;
+    }
+    & div {
+      display: grid;
+      gap: 20px;
+      & a {
+        @include ButtonA;
+      }
+      & a:hover {
+        @include ButtonAHover;
+      }
+    }
+  }
+}
+
+@media (min-width: 670px) {
+  .AboutUI {
+    &__game {
+      & h2 {
+        font-size: 5rem;
+      }
+      & p {
+        font-size: 2rem;
+      }
+    }
+    &__me {
+      & h2 {
+        font-size: 5rem;
+      }
+      & p {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .AboutUI {
+    grid-template-columns: 1fr 1fr;
+    &__me {
+      padding: 0px 60px;
+      & div {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
