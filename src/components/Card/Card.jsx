@@ -3,7 +3,7 @@ import React from 'react';
 import { IconClose } from '../Icons/IconClose';
 import { Link } from "react-router-dom";
 
-export default function Card({ onClose, id, name, species, gender, image }) {
+function Card({ onClose, id, name, species, gender, image }) {
 
    return (
       <div className='card'>
@@ -20,3 +20,6 @@ export default function Card({ onClose, id, name, species, gender, image }) {
       </div>
    );
 }
+
+
+export { Card };

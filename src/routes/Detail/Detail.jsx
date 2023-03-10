@@ -6,9 +6,7 @@ import { AppProvider } from '../../context/AppContext';
 function Detail () {
 
   return (
-    <AppProvider>
       <DetailUI />
-    </AppProvider>
   );
 }
 

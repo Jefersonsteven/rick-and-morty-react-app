@@ -6,9 +6,7 @@ import { AppProvider } from '../../context/AppContext';
 function Home () {
 
   return (
-    <AppProvider>
       <HomeUI />
-    </AppProvider>
   );
 }
 

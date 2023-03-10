@@ -3,10 +3,22 @@ import React from 'react';
 import { AppContext } from "../../context/AppContext";
 
 function SearchBar() {
-   const {searchInput, setSearchInput, addCharacters, BASE_URL, API_KEY} = React.useContext(AppContext);
+   const {searchInput, setSearchInput, addCharacters, BASE_URL, API_KEY, characters} = React.useContext(AppContext);
 
    const onSearchValueChange = (event) => {
       setSearchInput(event.target.value);
+   }
+
+   const addCharcatersSetInput = () => {
+      if(searchInput !== '' && !!Number(searchInput) && searchInput <= 826) {
+         let itIsAdded = characters.find(character => character.id === searchInput);
+         if(!itIsAdded) {
+            addCharacters(`${BASE_URL}character/${searchInput}?key=${API_KEY}`);
+         }
+         setSearchInput('')
+      } else if (!Number(searchInput) || searchInput > 826 ) {
+         window.alert('Escribe un numero del 1 al 826')
+      }
    }
 
 
@@ -16,15 +28,16 @@ function SearchBar() {
             onChange={onSearchValueChange} 
             value={searchInput} 
             className='SearchBar__input' 
-            type='search' 
+            type='search'
+            onKeyDown={(event) => {
+               if(event.key === "Enter") {
+                  addCharcatersSetInput();
+               }
+            }}
+
          />
          <button className='SearchBar__btn' onClick={() => {
-            if(searchInput !== '' && !!Number(searchInput) && searchInput <= 826) {
-               addCharacters(`${BASE_URL}character/${searchInput}?key=${API_KEY}`);
-               setSearchInput('')
-            } else if (!Number(searchInput) || searchInput > 826 ) {
-               window.alert('Escribe un numero del 1 al 826')
-            }
+            addCharcatersSetInput();
          }}>
                Add
          </button>

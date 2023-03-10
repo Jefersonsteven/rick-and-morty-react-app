@@ -16,13 +16,12 @@ function AppProvider(props) {
     const [ searchInput, setSearchInput ] = React.useState('');
   
     // * Modificar el estado de la cards
-    // * Agg o Remover Cards
+    // * Add Cards
     const addCharacters = async (urlApi) => {
       try {
         const { image, name, species, gender, id } = await fetchData(urlApi);
         if (id <= 826) {
           let itIsAdded = characters.find(character => character.id === id);
-  
           if(!itIsAdded){
             setCharacters([ { id, image, name, species, gender }, ...characters ])
           }

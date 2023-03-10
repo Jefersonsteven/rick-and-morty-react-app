@@ -1,7 +1,7 @@
 import './Cards.scss'
 
 import React from 'react';
-import Card from '../Card/Card';
+import { Card } from '../Card/Card';
 import { AppContext } from "../../context/AppContext";
 
 function Cards() {
@@ -9,7 +9,7 @@ function Cards() {
    return (
       
       <div className='characteres-container'>
-         {characters.map(({ id, name, species, gender, image }) => <Card 
+         {!characters.lengh && characters.map(({ id, name, species, gender, image }) => <Card 
             key={id}
             id={id}
             name={name}

@@ -13,9 +13,6 @@ function AboutUI() {
 
   return(
     <Fragment>
-      <div className="UI">
-          <Nav/>
-      </div>
       <div className="About">
 
           <section className="About__game">
