@@ -20,7 +20,7 @@ const validatePassword = (data, message, setMessage) => {
     if(/^(?=.*\d)[\w\d]{6,10}$/.test(data.password)){
       setMessage({ ...message, ['password']: true })
     } else {
-      setMessage({ ...message, ['password']: 'Debe tener minimo un numero /n y una longitud de entre <br/> y 10 caracteres, ' })
+      setMessage({ ...message, ['password']: 'Debe tener minimo un numero y una longitud de entre y 10 caracteres, ' })
     }
   }
 
