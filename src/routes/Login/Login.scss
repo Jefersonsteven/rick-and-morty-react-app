@@ -34,6 +34,7 @@
   display: grid;
   place-items: center;
   &__container {
+    max-width: 285px;
     @include Card;
     & h2 {
       letter-spacing: 1px;
@@ -62,6 +63,7 @@
           font-family: Montserrat, sans-serif;
         }
         & span {
+          max-width: 234px;
           font-size: 1.2rem;
           font-style: italic;
           color: red;
