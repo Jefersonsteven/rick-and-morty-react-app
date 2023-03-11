@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchData } from '../assets/fetchData';
 import { API_KEY } from '../assets/API_KEY'
 
@@ -36,6 +37,34 @@ function AppProvider(props) {
       setCharacters(characters.filter(character => character.id !== id))
     }
 
+    // * simula una base de datos que contiene username y password
+    const navigate = useNavigate();
+    const [access, setAccess] = useState(false);
+    
+    const login = (event, userData, message) => {
+      const user = userData.username;
+      const password = userData.password;
+      if (userData.username != '' && userData.password != '') {
+        if (userData.username === user && userData.password === password) {
+          if (message.username === '' && message.password === '') {
+            event.preventDefault();
+            setAccess(true);
+            navigate('/home');
+          }
+        };
+      }
+      event.preventDefault();
+    }
+
+    useEffect(() => {
+      !access && navigate('/')
+    }, [access])
+
+    // * simula cerrar secion
+    const logout = () => [
+      
+    ]
+
     return(
       <AppContext.Provider value={{
         characters,
@@ -46,7 +75,8 @@ function AppProvider(props) {
         onClose,
         BASE_URL,
         API_KEY,
-        fetchData
+        fetchData,
+        login
       }}>
         {props.children}
       </AppContext.Provider>

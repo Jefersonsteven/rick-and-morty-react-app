@@ -8,30 +8,53 @@ import { Detail } from './routes/Detail/Detail'
 import { Error } from './Error/Error'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
+import { Login } from './routes/Login/Login';
 
 
 
 const router = createBrowserRouter([
    {
       path: '/',
-      element: <Home />,
-      errorElement: <Error />
+      element: (
+      <AppProvider>
+         <Login />
+      </AppProvider>
+      ),
+      errorElement:(
+         <AppProvider>
+            <Error />
+         </AppProvider>
+         )
+   },
+   {
+      path: '/home',
+      element: (
+         <AppProvider>
+            <Home />
+         </AppProvider>
+         ),
    },
    {
       path: '/detail/:id',
-      element: <Detail />,
+      element: (
+         <AppProvider>
+            <Detail />
+         </AppProvider>
+         ),
    },
    {
-      path: '/About',
-      element: <About />
+      path: '/about',
+      element: (
+         <AppProvider>
+            <About />
+         </AppProvider>
+         )
    }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <Fragment>
-      <AppProvider>
          <RouterProvider router={router} />
-      </AppProvider>
    </Fragment>
 )
