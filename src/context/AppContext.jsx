@@ -46,7 +46,7 @@ function AppProvider(props) {
       const password = userData.password;
       if (userData.username != '' && userData.password != '') {
         if (userData.username === user && userData.password === password) {
-          if (message.username === '' && message.password === '') {
+          if (message.username === true && message.password === true) {
             event.preventDefault();
             setAccess(true);
             navigate('/home');
@@ -62,7 +62,7 @@ function AppProvider(props) {
 
     // * simula cerrar secion
     const logout = () => [
-      
+      navigate('/')
     ]
 
     return(
@@ -76,7 +76,8 @@ function AppProvider(props) {
         BASE_URL,
         API_KEY,
         fetchData,
-        login
+        login,
+        logout
       }}>
         {props.children}
       </AppContext.Provider>

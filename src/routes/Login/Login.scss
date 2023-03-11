@@ -1,0 +1,88 @@
+@mixin Card {
+  display: grid;
+  padding: 20px;
+  place-items: center;
+  gap: 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  background: rgba( 255, 255, 255, 0.55 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4.5px );
+  max-width: 700px;
+}
+
+@mixin border-style($color) {
+  border: 3px solid $color;
+  outline-color: $color;
+}
+
+.error {
+  @include border-style(red);
+}
+
+.validated {
+  @include border-style(green);
+}
+
+.normal {
+  @include border-style(black);
+}
+
+.LoginUI {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  &__container {
+    @include Card;
+    & h2 {
+      letter-spacing: 1px;
+    }
+    & h3 {
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    & form {
+      width: 100%;
+      display: grid;
+      gap: 30px;
+      place-items: center;
+      & div {
+        display: grid;
+        gap: 10px;
+        font-weight: 500px;
+        & label {
+          letter-spacing: 1px;
+        }
+        & input {
+          min-width: 234px;
+          height: 50px;
+          border-radius: 5px;
+          padding-left: 20px;
+          font-family: Montserrat, sans-serif;
+        }
+        & span {
+          font-size: 1.2rem;
+          font-style: italic;
+          color: red;
+        }
+      }
+      & button {
+        display: grid;
+        place-items: center;
+        font-size: 1.8rem;
+        min-width: 200px;
+        height: 50px;
+        border-radius: 50px;
+        border: 3px solid black;
+        font-weight: bolder;
+        max-width: 200px;
+        cursor: pointer;
+      }
+      & button:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}

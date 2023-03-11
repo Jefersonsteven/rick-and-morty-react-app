@@ -9,7 +9,7 @@ function Menu() {
     <nav className="Menu">
       <ul>
         <li>
-          <Link to={"/"} className="Link">
+          <Link to={"/home"} className="Link">
             <Rick />
           </Link>
         </li>
