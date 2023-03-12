@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { SearchBar } from '../SearchBar/SearchBar'
 import { Menu } from '../Menu/Menu'
 import { useLocation } from 'react-router-dom';
+import { Logout } from '../Icons/Logout'
+import { Link } from 'react-router-dom';
 
 function Nav() {
   
@@ -15,6 +17,11 @@ function Nav() {
       </div>
       <div className='Nav__search'>
         { location.pathname === '/home' && <SearchBar/> }
+      </div>
+      <div className='Nav__logout'>
+          <Link to={"/"} className="Link">
+            <Logout />
+          </Link>
       </div>
     </nav>
   )
