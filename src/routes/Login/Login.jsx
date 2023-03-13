@@ -8,12 +8,14 @@ import { Rick } from '../../components/Icons/Rick'
 function Login() {
   const [ userData, setUserData ] = useState({ username: "", password: "" });
   const [ message, setMessage ] = useState({ username: "", password: "" });
+  
   const [ stylesUsername, setStylesUsername ] = useState('normal');
   const [ stylesPassword, setStylesPassword ] = useState('normal');
 
   
   // * funcion que se ejecuta cuando escribo
   const handleInputChange = (event) => {
+
     if(event.target.name === "email") {
       setUserData({ ...userData, ["username"]: event.target.value });
       validateUsername({ ...userData, ["username"]: event.target.value }, message, setMessage);

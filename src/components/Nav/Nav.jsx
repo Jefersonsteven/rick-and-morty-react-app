@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 function Nav() {
   
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   return(
     <nav className="Nav">
@@ -16,7 +16,7 @@ function Nav() {
         <Menu />
       </div>
       <div className='Nav__search'>
-        { location.pathname === '/home' && <SearchBar/> }
+        { pathname === '/home' && <SearchBar/> }
       </div>
       <div className='Nav__logout'>
           <Link to={"/"} className="Link">
