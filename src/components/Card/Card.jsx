@@ -2,14 +2,17 @@ import './Card.scss'
 import React from 'react';
 import { IconClose } from '../Icons/IconClose';
 import { Link } from "react-router-dom";
+import { Heart } from '../Icons/Heart';
 
 function Card({ onClose, id, name, species, gender, image }) {
 
    return (
       <div className='card'>
+         <button>
+            <Heart />
+         </button>
          <button onClick={() => onClose(id)}>
             <IconClose />
-            
          </button>
          <img  src={image} alt={name} />
          <Link to={`/detail/${id}`}>

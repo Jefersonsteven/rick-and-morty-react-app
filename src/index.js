@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom/client';
 import './index.scss'
-import { Nav } from './components/Nav/Nav';
 import { Home } from './routes/Home/Home'
 import { About } from './routes/About/About'
 import { Detail } from './routes/Detail/Detail'
-import { Error } from './Error/Error'
+import { Error } from './routes/Error/Error'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { Login } from './routes/Login/Login';
