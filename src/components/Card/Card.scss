@@ -12,6 +12,29 @@
   background: rgba( 255, 255, 255, 0.55 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 4.5px );
+  & .true {
+    cursor: pointer;
+    border: 3px solid white;
+    background-color: black;
+    fill: #f71111;
+    & svg path {
+      fill: #f71111;
+    }
+  }
+  & .false {
+    width: 50px;
+    height: 50px;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    border: 3px solid black;
+    border-radius: 50px;
+    & svg {
+      & path {
+        fill: rgb(158, 145, 145);
+      }
+    }
+  }
   & button {
     display: grid;
     place-items: center; 
@@ -27,17 +50,7 @@
     & svg {
       width: 30px;
       height: 30px;
-      & path {
-        fill: rgb(158, 145, 145);
-      }
-    }
-  }
-  & button:nth-child(1):hover {
-    cursor: pointer;
-    border: 3px solid white;
-    background-color: black;
-    & svg path {
-      fill: #f71111;
+
     }
   }
   & button:nth-child(2) {

@@ -16,6 +16,9 @@ function Menu() {
         <li>
           <Link to={"/about"} className="Link">About</Link>
         </li>
+        <li>
+          <Link to={"/favorites"} className="Link">Favorites</Link>
+        </li>
       </ul>
     </nav>
   )

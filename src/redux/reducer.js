@@ -5,21 +5,23 @@ const initialState = {
 }
 
 function rootReducer(state = initialState, action) {
-  switch(action.type){
+  switch (action.type) {
     case ADD_TO_FAVORITES:
       return {
         ...state,
-        myFavorites: [ ...myFavorites, action.payload ]
-      }
+        myFavorites: [...state.myFavorites, action.payload],
+      };
     case REMOVE_OF_FAVORITES:
       return {
         ...state,
-        myFavorites: state.myFavorites.filter(item => item.id !== action.payload)
-      }
+        myFavorites: state.myFavorites.filter(
+          (item) => item.id !== action.payload
+        ),
+      };
     default:
       return {
-        ...state
-      }
+        ...state,
+      };
   }
 }
 

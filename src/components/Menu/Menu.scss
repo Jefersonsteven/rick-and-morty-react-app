@@ -25,6 +25,9 @@
     & li:nth-child(2) {
       @include ButtonA
     }
+    & li:nth-child(3) {
+      @include ButtonA
+    }
   }
 }
 
@@ -38,16 +41,16 @@
   .Menu {
     & ul {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       align-items: center;
     }
   }
 }
 
-@media (min-width: 1250px ) {
-  .Menu {
-    & ul {
+// @media (min-width: 1250px ) {
+//   .Menu {
+//     & ul {
       
-    }
-  }
-}
+//     }
+//   }
+// }
