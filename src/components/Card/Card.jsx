@@ -30,7 +30,7 @@ function Card({ onClose, id, name, species, gender, image }) {
             setIsFav(true);
          }
       }
-   }, [myFavorites])
+   }, [myFavorites]);
 
    return (
       <div className='card'>
