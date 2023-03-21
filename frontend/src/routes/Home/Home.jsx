@@ -9,7 +9,7 @@ function Home () {
   return (
     <Fragment>
       <div className="UI" >
-           <Nav/>
+          <Nav/>
       </div>
       <HomeUI />
     </Fragment>
