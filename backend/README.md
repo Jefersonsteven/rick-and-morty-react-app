@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # **HW 02 WebServer | Integración**
 
 ## **🕒 Duración estimada**
@@ -116,3 +117,4 @@ Una vez hecho esto, dentro del objeto **scripts** tienes que dejar el script **`
 ---
 
 Hemos terminado por ahora!! 🥳 más adelante crearemos más rutas para nuestro frontend. 🚀
+=======
