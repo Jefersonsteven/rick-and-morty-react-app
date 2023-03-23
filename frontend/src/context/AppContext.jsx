@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchData } from '../assets/fetchData';
-import { API_KEY } from '../assets/API_KEY'
+import { API_KEY } from '../assets/API_KEY';
 
 // * Contexto
 const AppContext = React.createContext();
