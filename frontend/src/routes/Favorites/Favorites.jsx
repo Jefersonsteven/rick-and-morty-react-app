@@ -3,10 +3,23 @@ import React, { Component, Fragment } from 'react';
 import { Nav } from '../../components/Nav/Nav';
 import { connect } from 'react-redux';
 import { Card } from '../../components/Card/Card';
+import { orderCards, filterCards } from '../../redux/actions';
+
 
 class Favorites extends Component {
   constructor(props) {
     super(props);
+    this.handleSortChange = this.handleSortChange.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
+  }
+
+  handleSortChange(event) {
+    this.props.orderCards(event.target.value);
+  }
+
+  handleFilterChange(event) {
+    this.props.filterCards(event.target.value);
+    console.log(event.target.value);
   }
 
   render() {
@@ -16,6 +29,18 @@ class Favorites extends Component {
           <Nav />
         </div>
         <div className='Favorites'>
+          {this.props.allCharacters[0] && <div className='Favorites--filter-sort'>
+            <select name="sort" className='Favorites--filter-sort__sort' onChange={this.handleSortChange}>
+              <option value="Ascendente">Ascendente</option>
+              <option value="Descendente">Descendente</option>
+            </select>
+            <select name="filter" className='Favorites--filter-sort__filter' onChange={this.handleFilterChange}>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Genderless ">Genderless </option>
+              <option value="unknown">unknown</option>
+            </select>
+          </div>}
           {this.props.myFavorites?.map(({ id, name, species, gender, image }) => {
             return <Card
               key={id}
@@ -36,9 +61,16 @@ class Favorites extends Component {
 const mapStateToProps = (state) => {
   return {
     myFavorites: state.myFavorites,
+    allCharacters: state.allCharacters,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    orderCards: (value) => dispatch(orderCards(value)),
+    filterCards: (value) => dispatch(filterCards(value)),
   };
 };
 
 
-export default connect(mapStateToProps, null)(Favorites);
-// export { Favorites };
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

@@ -65,6 +65,8 @@ function AppProvider(props) {
       navigate('/')
     ]
 
+    // !! outlet 
+
     return(
       <AppContext.Provider value={{
         characters,
