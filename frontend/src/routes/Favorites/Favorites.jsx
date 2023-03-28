@@ -19,7 +19,6 @@ class Favorites extends Component {
 
   handleFilterChange(event) {
     this.props.filterCards(event.target.value);
-    console.log(event.target.value);
   }
 
   render() {
@@ -41,17 +40,19 @@ class Favorites extends Component {
               <option value="unknown">unknown</option>
             </select>
           </div>}
-          {this.props.myFavorites?.map(({ id, name, species, gender, image }) => {
-            return <Card
-              key={id}
-              id={id}
-              name={name}
-              species={species}
-              gender={gender}
-              image={image}
-              onClose={false}
-            />
-          })}
+          <div className='Favorites-container' >
+            {this.props.myFavorites?.map(({ id, name, species, gender, image }) => {
+              return <Card
+                key={id}
+                id={id}
+                name={name}
+                species={species}
+                gender={gender}
+                image={image}
+                onClose={false}
+              />
+            })}
+          </div>
         </div>
       </Fragment>
     )
