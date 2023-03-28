@@ -3,10 +3,10 @@ const validateUsername = (data, message, setMessage) => {
   if (!data.username) {
     setMessage({ ...message, ['username']: 'Esta Vacio' })
   } else {
-    if (/^[\w-.]+@([\w-]+\.)+[\w]{3}$/.test(data.username) && data.username.length < 35) {
+    if (/^[\w-.]+@([\w-]+\.)+[\w]{2}$/.test(data.username) && data.username.length < 35) {
       setMessage({ ...message, ['username']: true })
     } else {
-      setMessage({ ...message, ['username']: 'No es Valido' })
+      setMessage({ ...message, ['username']: 'No es Valido. Ejemplo: hola@mundo.co' })
     }
   }
 
@@ -20,7 +20,7 @@ const validatePassword = (data, message, setMessage) => {
     if(/^(?=.*\d)[\w\d]{6,10}$/.test(data.password)){
       setMessage({ ...message, ['password']: true })
     } else {
-      setMessage({ ...message, ['password']: 'Debe tener minimo un numero y una longitud de entre y 10 caracteres, ' })
+      setMessage({ ...message, ['password']: 'Debe tener minimo un numero y una longitud de entre 6 y 10 caracteres, ' })
     }
   }
 

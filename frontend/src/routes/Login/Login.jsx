@@ -76,7 +76,7 @@ function Login() {
               type="text"
               name="email"
               autoComplete="on"
-              placeholder="email"
+              placeholder="hello@world.com"
               onChange={handleInputChange}
               value={userData.username}
             />
@@ -90,7 +90,7 @@ function Login() {
               type="text"
               name="password"
               autoComplete="on"
-              placeholder="password"
+              placeholder="password1"
               onChange={handleInputChange}
               value={userData.password}
             />
