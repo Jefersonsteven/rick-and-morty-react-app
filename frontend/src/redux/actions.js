@@ -8,7 +8,7 @@ const getFavorites =  () => {
   return async (dispatch) => {
     const response = await fetch('http://localhost:3001/api/v1/rickandmorty/fav');
     const favorites = await response.json();
-    return { type: GET_FAVORITES, payload: favorites }
+    return dispatch({ type: GET_FAVORITES, payload: favorites })
   }
 }
 

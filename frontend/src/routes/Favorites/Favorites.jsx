@@ -12,7 +12,11 @@ class Favorites extends Component {
     this.handleSortChange = this.handleSortChange.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
 
-    
+    async function a (ok) {
+      return await ok.props.getFavorites()
+
+    }
+    a(this)
   }
 
   handleSortChange(event) {
@@ -24,6 +28,7 @@ class Favorites extends Component {
   }
 
   render() {
+
     return (
       <Fragment>
         <div className="UI" >
@@ -72,6 +77,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     orderCards: (value) => dispatch(orderCards(value)),
     filterCards: (value) => dispatch(filterCards(value)),
+    getFavorites: () => dispatch(getFavorites()),
   };
 };
 

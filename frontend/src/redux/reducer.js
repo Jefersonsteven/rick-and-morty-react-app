@@ -7,7 +7,6 @@ import {
 } from "./actions"
 
 const initialState = {
-  myFavoritesServer: [],
   myFavorites: [],
   allCharacters: []
 }

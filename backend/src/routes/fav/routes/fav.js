@@ -20,7 +20,7 @@ fav.post('/', (req, res) => {
 
 fav.get('/', (req, res) => {
   const favorites = newFav.findFavorites();
-  console.log(favorites);
+  console.log("toma");
   try {
     res.json(favorites);
   } catch (error) {

@@ -21,7 +21,7 @@ class Fav {
   }
 
   findFavorites(){
-    if(this.fav[0]) {
+    if(this.fav) {
       return this.fav;
     }
     throw 'No hay personajes en favoritos';

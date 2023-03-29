@@ -16,9 +16,11 @@ function Card({ onClose, id, name, species, gender, image }) {
    const handleFavorite = async () => {
       if(isFav) {
          dispatch(removeOfFavorites(id));
+         // await dispatch(getFavorites());
          setIsFav(false);
       } else {
          dispatch(addToFavorites({id, name, species, gender, image}));
+         // await dispatch(getFavorites());
          setIsFav(true);
       }
    }

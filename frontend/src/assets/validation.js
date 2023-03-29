@@ -3,10 +3,10 @@ const validateUsername = (data, message, setMessage) => {
   if (!data.username) {
     setMessage({ ...message, ['username']: 'Esta Vacio' })
   } else {
-    if (/^[\w-.]+@([\w-]+\.)+[\w]{2}$/.test(data.username) && data.username.length < 35) {
+    if (/^[\w-.]+@([\w-]+\.)+[\w]{3}$/.test(data.username) && data.username.length < 35) {
       setMessage({ ...message, ['username']: true })
     } else {
-      setMessage({ ...message, ['username']: 'No es Valido. Ejemplo: hola@mundo.co' })
+      setMessage({ ...message, ['username']: 'No es Valido. Ejemplo: hola@mundo.com' })
     }
   }
 
