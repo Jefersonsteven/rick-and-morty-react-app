@@ -11,12 +11,9 @@ function DetailUI() {
 
   const [ characters, setCharacters ] = useState({})
 
-  const { BASE_URL, 
-          API_KEY,
-        } = useContext(AppContext);
-        
+  const { BASE_URL } = useContext(AppContext);
   useEffect(() => {
-    axios(`${BASE_URL}character/${id}?key=${API_KEY}`)
+    axios(`${BASE_URL}/api/v1/characters/detail/${id}`)
       .then((char) => {
         if (char.data.name) {
           setCharacters(char.data);

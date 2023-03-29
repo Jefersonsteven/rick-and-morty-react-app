@@ -9,7 +9,7 @@ const AppContext = React.createContext();
 // !
 function AppProvider(props) {
     // * BASE URL
-    const BASE_URL = 'https://be-a-rym.up.railway.app/api/';
+    const BASE_URL = 'http://localhost:3001';
 
     //* Estado de characters 
     const [characters, setCharacters] = React.useState([]);

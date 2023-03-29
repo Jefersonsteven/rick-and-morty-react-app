@@ -1,4 +1,5 @@
 import { 
+  GET_FAVORITES,
   ADD_TO_FAVORITES, 
   REMOVE_OF_FAVORITES,
   FILTER,
@@ -6,12 +7,19 @@ import {
 } from "./actions"
 
 const initialState = {
+  myFavoritesServer: [],
   myFavorites: [],
   allCharacters: []
 }
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_FAVORITES:
+      return {
+        ...state,
+        myFavoritesServer: action.payload
+      };
+
     case ADD_TO_FAVORITES:
       return {
         ...state,

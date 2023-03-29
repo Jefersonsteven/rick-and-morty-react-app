@@ -1,9 +1,9 @@
 import './Favorites.scss';
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, useEffect } from 'react';
 import { Nav } from '../../components/Nav/Nav';
 import { connect } from 'react-redux';
 import { Card } from '../../components/Card/Card';
-import { orderCards, filterCards } from '../../redux/actions';
+import { orderCards, filterCards, getFavorites } from '../../redux/actions';
 
 
 class Favorites extends Component {
@@ -11,6 +11,8 @@ class Favorites extends Component {
     super(props);
     this.handleSortChange = this.handleSortChange.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
+
+    
   }
 
   handleSortChange(event) {
@@ -61,6 +63,7 @@ class Favorites extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    myFavoritesServer: state.myFavoritesServer,
     myFavorites: state.myFavorites,
     allCharacters: state.allCharacters,
   };

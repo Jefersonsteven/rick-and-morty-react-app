@@ -4,7 +4,7 @@ import { IconClose } from '../Icons/IconClose';
 import { Link } from "react-router-dom";
 import { Heart } from '../Icons/Heart';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToFavorites, removeOfFavorites } from '../../redux/actions';
+import { addToFavorites, removeOfFavorites, getFavorites } from '../../redux/actions';
 import { useLocation } from 'react-router-dom';
 
 function Card({ onClose, id, name, species, gender, image }) {
@@ -13,7 +13,7 @@ function Card({ onClose, id, name, species, gender, image }) {
    const myFavorites = useSelector((state) => state.myFavorites);
    const dispatch = useDispatch();
    
-   const handleFavorite = () => {
+   const handleFavorite = async () => {
       if(isFav) {
          dispatch(removeOfFavorites(id));
          setIsFav(false);
