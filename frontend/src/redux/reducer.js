@@ -17,7 +17,7 @@ function rootReducer(state = initialState, action) {
     case GET_FAVORITES:
       return {
         ...state,
-        myFavoritesServer: action.payload
+        myFavorites: action.payload
       };
 
     case ADD_TO_FAVORITES:

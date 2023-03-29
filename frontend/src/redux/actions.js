@@ -4,15 +4,13 @@ export const REMOVE_OF_FAVORITES = 'REMOVE_OF_FAVORITES';
 export const FILTER = 'FILTER_CARDS';
 export const ORDER = 'ORDER_CARDS';
 
-
-const getFavorites = () => {
+const getFavorites =  () => {
   return async (dispatch) => {
     const response = await fetch('http://localhost:3001/api/v1/rickandmorty/fav');
     const favorites = await response.json();
-
-    dispatch({ type: GET_FAVORITES, payload: favorites });
-  };
-};
+    return { type: GET_FAVORITES, payload: favorites }
+  }
+}
 
 const addToFavorites = (character) => {
   fetch(`http://localhost:3001/api/v1/rickandmorty/fav`, {
@@ -20,7 +18,6 @@ const addToFavorites = (character) => {
     headers: {  "Content-Type": "application/json" },
     body: JSON.stringify(character)
   })
-
 
   return { type: ADD_TO_FAVORITES, payload: character };
 };
@@ -41,4 +38,4 @@ const orderCards = (value) => {
   return {  type: ORDER, payload: value }
 }
 
-export { getFavorites, addToFavorites, removeOfFavorites, filterCards, orderCards };
+export { addToFavorites, removeOfFavorites, filterCards, orderCards, getFavorites };

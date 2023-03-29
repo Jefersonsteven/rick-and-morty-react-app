@@ -63,7 +63,6 @@ class Favorites extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    myFavoritesServer: state.myFavoritesServer,
     myFavorites: state.myFavorites,
     allCharacters: state.allCharacters,
   };

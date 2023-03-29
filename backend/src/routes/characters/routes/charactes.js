@@ -5,25 +5,26 @@ const characters = express.Router();
 
 characters.get('/:id', async (req, res) => {
   const { id } = req.params;
-  const character = await newCharacters.getChatById(id);
-  if(character.id == id){
-    return res.json(character);
+  try {
+    const character = await newCharacters.getChatById(id);
+    res.json(character);
+  } catch (error) {
+    res.status(500).json({ 
+      message: error.message
+    })
   }
-  res.status(500).json({ 
-    message: 'error'
-  })
 })
 
 characters.get('/detail/:id', async (req, res) => {
-  console.log('entre');
   const { id } = req.params;
-  const character = await newCharacters.getChartDetail(id);
-  if(character.id == id){
-    return res.json(character);
-  }
-  res.status(500).json({ 
-    message: 'error'
-  })
+  try {
+    const character = await newCharacters.getChartDetail(id);
+    res.json(character);
+  } catch (error) {
+    res.status(500).json({ 
+      message: error.message
+    })
+  } 
 })
 
 module.exports = characters;
