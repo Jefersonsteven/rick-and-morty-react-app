@@ -42,16 +42,29 @@
   .Menu {
     & ul {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "logo section1"
+                            "logo section2";
+      // grid-template-columns: 1fr 1fr 1fr;
+      & li:nth-child(1) {
+        grid-area: logo;
+      }
+      & li:nth-child(2) {
+        grid-area: section1;
+      }
+      & li:nth-child(3) {
+        grid-area: section2;
+      }
       align-items: center;
     }
   }
 }
 
-// @media (min-width: 1250px ) {
-//   .Menu {
-//     & ul {
-      
-//     }
-//   }
-// }
+@media (min-width: 1200px ) {
+  .Menu {
+    & ul {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+

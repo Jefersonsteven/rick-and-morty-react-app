@@ -1,6 +1,5 @@
 .Nav {
     display: grid;
-    place-items: center;
     gap: 30px;
     background: rgba( 255, 255, 255, 0.55 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -10,14 +9,19 @@
     padding: 20px;
   &__search {
     width: 100%;
+    margin-right: 50px;
   }
-  
+  &__logout {
+    display: grid;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 800px) {
   .Nav {
     width: 90%;
     grid-template-columns: 1fr 338px 60px;
+    place-items: center;
     &__search {
       max-width: 410px;
       grid-column: 2 / 3;
