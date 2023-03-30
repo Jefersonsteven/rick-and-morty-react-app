@@ -22,7 +22,7 @@ function DetailUI() {
         }
       })
       .catch((err) => {
-        window.alert("No hay personajes con ese ID");
+        window.alert("No hay personajes con ese ID!!");
       });
     return setCharacters({});
   }, [id]);
