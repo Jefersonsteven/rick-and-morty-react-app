@@ -9,7 +9,7 @@ const AppContext = React.createContext();
 // !
 function AppProvider(props) {
     // * BASE URL
-    const BASE_URL = 'http://localhost:3001';
+    const BASE_URL = 'https://rick-and-morty-react-api-jeffer.up.railway.app/';
 
     //* Estado de characters 
     const [characters, setCharacters] = React.useState([]);

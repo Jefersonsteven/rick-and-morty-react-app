@@ -3,17 +3,18 @@ export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const REMOVE_OF_FAVORITES = 'REMOVE_OF_FAVORITES';
 export const FILTER = 'FILTER_CARDS';
 export const ORDER = 'ORDER_CARDS';
+const URL = 'https://rick-and-morty-react-api-jeffer.up.railway.app';
 
 const getFavorites =  () => {
   return async (dispatch) => {
-    const response = await fetch('http://localhost:3001/api/v1/rickandmorty/fav');
+    const response = await fetch(`${URL}/api/v1/rickandmorty/fav`);
     const favorites = await response.json();
     return dispatch({ type: GET_FAVORITES, payload: favorites })
   }
 }
 
 const addToFavorites = (character) => {
-  fetch(`http://localhost:3001/api/v1/rickandmorty/fav`, {
+  fetch(`${URL}/api/v1/rickandmorty/fav`, {
     method: 'POST',
     headers: {  "Content-Type": "application/json" },
     body: JSON.stringify(character)
@@ -23,7 +24,7 @@ const addToFavorites = (character) => {
 };
 
 const removeOfFavorites = (id) => {
-  fetch(`http://localhost:3001/api/v1/rickandmorty/fav/${id}`, {
+  fetch(`${URL}/api/v1/rickandmorty/fav/${id}`, {
     method: 'DELETE'
   })
 

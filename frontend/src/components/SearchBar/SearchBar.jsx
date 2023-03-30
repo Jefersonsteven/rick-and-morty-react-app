@@ -13,7 +13,7 @@ function SearchBar() {
       if(searchInput !== '' && !!Number(searchInput) && searchInput <= 826) {
          let itIsAdded = characters.find(character => character.id === searchInput);
          if(!itIsAdded) {
-            addCharacters(`${BASE_URL}/api/v1/characters/${searchInput}`);
+            addCharacters(`${BASE_URL}api/v1/characters/${searchInput}`);
          }
          setSearchInput('')
       } else if (!Number(searchInput) || searchInput > 826 ) {
