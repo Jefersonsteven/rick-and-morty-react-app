@@ -17,7 +17,7 @@ function SearchBar() {
          }
          setSearchInput('')
       } else if (!Number(searchInput) || searchInput > 826 ) {
-         window.alert('Escribe un numero del 1 al 826')
+         window.alert('Escribe un numero del 1 al 826');
       }
    }
 

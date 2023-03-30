@@ -13,7 +13,7 @@ function DetailUI() {
 
   const { BASE_URL } = useContext(AppContext);
   useEffect(() => {
-    axios(`${BASE_URL}/api/v1/characters/detail/${id}`)
+    axios(`${BASE_URL}api/v1/characters/detail/${id}`)
       .then((char) => {
         if (char.data.name) {
           setCharacters(char.data);
