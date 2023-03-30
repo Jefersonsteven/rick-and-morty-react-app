@@ -54,8 +54,7 @@
   justify-items: center;
   font-family: 'Montserrat', sans-serif;
   gap: 30px;
-  overflow-y: hidden;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   &__game {
     @include Card;
     & h2 {
