@@ -5,6 +5,11 @@ const express = require('express');
 
 function routerApi(app) {
   const router = express.Router();
+  
+  app.get('/', (req, res) => {
+    res.json('Hello, people!! ❤️🌎');
+  })
+
   app.use('/api/v1', router);
   router.use('/characters', characters);
   router.use('/rickandmorty/fav', fav);
