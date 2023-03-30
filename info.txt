@@ -1,0 +1,8 @@
+total 24
+drwxr-xr-x  5 gfrey gfrey 4096 Mar 30 07:35 .
+drwxr-xr-x 11 gfrey gfrey 4096 Mar 21 16:57 ..
+drwxr-xr-x  8 gfrey gfrey 4096 Mar 30 07:12 .git
+-rw-r--r--  1 gfrey gfrey 3597 Mar 28 09:05 .gitignore
+drwxr-xr-x  6 gfrey gfrey 4096 Mar 30 07:06 backend
+drwxr-xr-x  7 gfrey gfrey 4096 Mar 28 09:05 frontend
+-rw-r--r--  1 gfrey gfrey    0 Mar 30 07:38 info.txt
