@@ -24,7 +24,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         myFavorites: [...state.allCharacters, action.payload],
         allCharacters: [  ...state.allCharacters, action.payload ]
-
       };
     case REMOVE_OF_FAVORITES:
       return {
