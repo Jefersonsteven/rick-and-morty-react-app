@@ -16,7 +16,7 @@ class Favorites extends Component {
       return await ok.props.getFavorites()
 
     }
-    a(this)
+    a(this);
   }
 
   handleSortChange(event) {

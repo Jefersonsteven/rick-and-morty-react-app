@@ -4,12 +4,12 @@ const cors = require('cors');
 const routerApi = require("../routes");
 const app = express();
 
-const PORT =  process.env.PORT || 3001;
+const PORT =  process.env.PORT || 3002;
 
 app.use(express.json());
 app.use(cors()); 
 
-// const whitelist = ['http://localhost:3000', 'https://rickandmorty-jeffer.netlify.app/'];
+// const whitelist = ['http://localhost:3005', 'https://rickandmorty-jeffer.netlify.app'];
 // const options = {
 //   origin: (origin, callback) => {
 //     if(whitelist.includes(origin)) {

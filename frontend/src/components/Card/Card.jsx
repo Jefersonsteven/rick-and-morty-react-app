@@ -13,7 +13,7 @@ function Card({ onClose, id, name, species, gender, image }) {
    const myFavorites = useSelector((state) => state.myFavorites);
    const dispatch = useDispatch();
    
-   const handleFavorite = async (event) => {
+   const handleFavorite = () => {
       if(isFav) {
          dispatch(removeOfFavorites(id));
          setIsFav(false);
