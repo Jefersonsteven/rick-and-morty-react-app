@@ -5,8 +5,7 @@ const fav = express.Router();
 
 
 fav.post('/', (req, res) => {
-  const { body } = req;
-  const addFavorite = newFav.addFavorite(body);
+  const addFavorite = newFav.addFavorite(req, res);
   if(addFavorite){
     return res.status(201).json({
       message: 'add to favorite',
