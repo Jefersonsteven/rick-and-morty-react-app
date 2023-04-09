@@ -41,9 +41,10 @@ function AppProvider(props) {
     const navigate = useNavigate();
     const [access, setAccess] = useState(false);
     
-    const login = (event, userData, message) => {
+    const login = async (event, userData, message) => {
       const user = userData.username;
       const password = userData.password;
+      // TODO: peticion get a /api/v1/login  res === { access: true } setAccess(res.access)
       if (userData.username != '' && userData.password != '') {
         if (userData.username === user && userData.password === password) {
           if (message.username === true && message.password === true) {
