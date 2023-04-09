@@ -1,4 +1,5 @@
 const axios = require('axios');
+const {Favorite} = require('../../../database/DB_connection');
 
 class Fav {
   constructor(){
@@ -9,15 +10,23 @@ class Fav {
     return this.fav.findIndex(character => character.id == id);
   }
 
-  addFavorite(character){
-    if(character.id) {
-      if(this.thisCharacter(character.id) >= 0) {
-        throw 'Ya esta agregado a favoritos'
+  async addFavorite(req, res){
+    const { character } = req.body;
+    const { name, origin, status, image, species, gender } = character;
+
+    if(name&&origin&&status&&image&&species&&gender) {
+      const [favorite, created] = await Favorite.findOrCreate({
+        where: { name },
+        defaults: { origin, status, image, species, gender }
+      });
+      if(created) {
+        return favorite;
       } else {
-        return this.fav.push(character);
+        res.status(400).json({message:'Ya esta agregado a favoritos'});
       }
+    } else {
+      res.status(400).json({message:'No se pudo agregar a favoritos, faltan datos'});
     }
-    throw 'No se pudo agregar a favoritos';
   }
 
   findFavorites(){
