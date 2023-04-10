@@ -46,7 +46,6 @@ function AppProvider(props) {
       event.preventDefault();
       const user = userData.username;
       const password = userData.password;
-      // TODO: peticion get a /api/v1/login  res === { access: true } setAccess(res.access)
       const logginn = await fetchData(`${BASE_URL}api/v1/login`, {
         method: 'POST',
         headers: {  "Content-Type": "application/json" },
