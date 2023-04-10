@@ -16,7 +16,8 @@ function rootReducer(state = initialState, action) {
     case GET_FAVORITES:
       return {
         ...state,
-        myFavorites: action.payload
+        myFavorites: action.payload,
+        allCharacters: action.payload
       };
 
     case ADD_TO_FAVORITES:
@@ -37,13 +38,18 @@ function rootReducer(state = initialState, action) {
       };
     case FILTER:
       const allCharacters = [...state.allCharacters];
-      const filter = allCharacters.filter(character => character.gender === action.payload)
+      let filter;
+      if(action.payload === 'All') {
+        filter = allCharacters;
+      } else {
+        filter = allCharacters.filter(character => character.gender === action.payload);
+      }
       return {
         ...state,
         myFavorites: filter
       }
     case ORDER:
-      const AllCharacters = [...state.allCharacters];
+      const AllCharacters = [...state.myFavorites];
       let sort;
       if(action.payload == "Ascendente"){
         sort = AllCharacters.sort((a, b) => a.id - b.id);

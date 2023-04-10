@@ -12,20 +12,20 @@ class Characters {
 
   async getChatById(value){
     const response = await axios.get(`${this.url}${value}`);
-    const { id, name, species, image, gender } = response.data;
+    const { id, name, origin, status, image, species, gender } = response.data;
     if(!response.data) {
       throw Error('No se encuentra el personaje');
     }
-    return { id, name, species, image, gender };
+    return { id, name, origin, status, image, species, gender };
   }
 
   async getChartDetail(value){
     const response = await axios.get(`${this.url}${value}`);
-    const { id, name, species, image, gender, origin } = response.data;
+    const { id, name, origin, status, image, species, gender } = response.data;
     if(!response.data) {
       throw Error('No se encuentra el detalle del personaje');
     }
-    return { id, name, species, image, gender, origin };
+    return { id, name, origin, status, image, species, gender };
   }
 
   addFavorite(character){

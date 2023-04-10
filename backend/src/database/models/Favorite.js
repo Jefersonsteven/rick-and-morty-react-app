@@ -7,6 +7,10 @@ module.exports = (sequelize) => {
          autoIncrement: true,
          primaryKey: true
       },
+      id_api: {
+         type: DataTypes.INTEGER,
+         unique: true
+      },
       name: {
          type: DataTypes.STRING,
          unique: true,

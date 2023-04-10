@@ -14,7 +14,6 @@ class Favorites extends Component {
 
     async function a (ok) {
       return await ok.props.getFavorites()
-
     }
     a(this);
   }
@@ -41,6 +40,7 @@ class Favorites extends Component {
               <option value="Descendente">Descendente</option>
             </select>
             <select name="filter" className='Favorites--filter-sort__filter' onChange={this.handleFilterChange}>
+              <option value="All">All</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Genderless ">Genderless </option>
@@ -48,10 +48,11 @@ class Favorites extends Component {
             </select>
           </div>}
           <div className='Favorites-container' >
-            {this.props.myFavorites?.map(({ id, name, origin, status, image, species, gender }) => {
+            {this.props.myFavorites?.map(({ id, id_api, name, origin, status, image, species, gender }) => {
               return <Card
                 key={id}
                 id={id}
+                id_api={id_api}
                 name={name}
                 origin={origin}
                 status={status}

@@ -6,18 +6,20 @@ class Fav {
 
   async addFavorite(req, res){
     const character = req.body;
-    const { name, origin, status, image, species, gender } = character;
+    const { id_api, name, origin, status, image, species, gender } = character;
     
-    if(name&&origin&&status&&image&&species&&gender) {
+    if(id_api&&name&&origin&&status&&image&&species&&gender) {
       const [favorite, created] = await Favorite.findOrCreate({
         where: { name },
-        defaults: { origin, status, image, species, gender }
+        defaults: { id_api, origin, status, image, species, gender }
       });
       if(created) {
         return favorite;
       } else {
         return res.status(400).json({message:'Ya esta agregado a favoritos'});
-      }
+      } 
+    } else {
+      return res.status(400).json({ message: 'Faltan datos del personaje' });
     }
   }
 

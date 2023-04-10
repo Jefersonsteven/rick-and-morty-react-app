@@ -7,7 +7,7 @@ fav.post("/", async (req, res) => {
   try {
     const favorite = await newFav.addFavorite(req, res);
     res.status(201).json({
-      message: "Add",
+      message: 'Add',
       data: favorite
     });
   } catch (error) {

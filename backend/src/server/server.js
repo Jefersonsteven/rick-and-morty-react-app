@@ -5,7 +5,7 @@ const routerApi = require("../routes");
 const { conn } = require('../database/DB_connection');
 const app = express();
 
-const PORT =  process.env.PORT || 3009;
+const PORT =  process.env.PORT || 3001;
 
 conn.sync({alter: true})
     .then(() => {

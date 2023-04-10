@@ -10,7 +10,7 @@ const AppContext = React.createContext();
 function AppProvider(props) {
     // * BASE URL
     //const BASE_URL = 'https://rick-and-morty-react-api-jeffer.up.railway.app/';
-    const BASE_URL = 'http://localhost:3009/';
+    const BASE_URL = 'http://localhost:3001/';
 
     //* Estado de characters 
     const [characters, setCharacters] = React.useState([]);
@@ -21,11 +21,11 @@ function AppProvider(props) {
     // * Add Cards
     const addCharacters = async (urlApi) => {
       try {
-        const { image, name, species, gender, id } = await fetchData(urlApi);
+        const { id, name, origin, status, image, species, gender } = await fetchData(urlApi);
         if (id <= 826) {
           let itIsAdded = characters.find(character => character.id === id);
           if(!itIsAdded){
-            setCharacters([ { id, image, name, species, gender }, ...characters ])
+            setCharacters([ { id, name, origin, status, image, species, gender }, ...characters ])
           }
         }
       } catch (error) {
@@ -46,8 +46,16 @@ function AppProvider(props) {
       const user = userData.username;
       const password = userData.password;
       // TODO: peticion get a /api/v1/login  res === { access: true } setAccess(res.access)
+      const logginn = await fetchData(`${BASE_URL}api/v1/login`, {
+        method: 'GET',
+        headers: {  "Content-Type": "application/json" },
+        body: JSON.stringify({ user, password })
+      });
+
+      const loginAccess = logginn.json();
+      
       if (userData.username != '' && userData.password != '') {
-        if (userData.username === user && userData.password === password) {
+        if (loginAccess.access === true) {
           if (message.username === true && message.password === true) {
             event.preventDefault();
             setAccess(true);
