@@ -43,19 +43,18 @@ function AppProvider(props) {
     const [access, setAccess] = useState(false);
     
     const login = async (event, userData, message) => {
+      event.preventDefault();
       const user = userData.username;
       const password = userData.password;
       // TODO: peticion get a /api/v1/login  res === { access: true } setAccess(res.access)
       const logginn = await fetchData(`${BASE_URL}api/v1/login`, {
-        method: 'GET',
+        method: 'POST',
         headers: {  "Content-Type": "application/json" },
         body: JSON.stringify({ user, password })
       });
-
-      const loginAccess = logginn.json();
       
       if (userData.username != '' && userData.password != '') {
-        if (loginAccess.access === true) {
+        if (logginn.access === true) {
           if (message.username === true && message.password === true) {
             event.preventDefault();
             setAccess(true);
@@ -63,7 +62,6 @@ function AppProvider(props) {
           }
         };
       }
-      event.preventDefault();
     }
 
     useEffect(() => {

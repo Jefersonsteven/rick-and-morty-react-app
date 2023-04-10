@@ -5,20 +5,20 @@ class Users {
 
 
     async login(req, res) {
-        const {email, password} = req.body;
-        if(email.length === 0 || password.length === 0) {
+        const {user, password} = req.body;
+        if(user.length === 0 || password.length === 0) {
             res.status(400).json('Faltan Datos');
         } else {
-            const user = await User.findOne({
-                where: { email }
+            const userFind = await User.findOne({
+                where: { email: user }
             })
             if(user) {
-                if(password === user.password) {
+                if(password === userFind.password) {
                     return {
                         access: true
                     };
                 } else {
-                    res.status(403).json({message: "Contraseña incorrecta"});
+                    return res.status(403).json({message: "Contraseña incorrecta"});
                 }
             }
         }

@@ -3,7 +3,7 @@ const newUsers = new Users();
 const express = require('express');
 const users = express.Router();
 
-users.post('/', async (req, res) => {
+users.post('/logout', async (req, res) => {
     try {
         const newUser = await newUsers.postUser(req, res);
         res.status(201).json({
@@ -17,7 +17,7 @@ users.post('/', async (req, res) => {
     }
 })
 
-users.get('/', async (req, res) => {
+users.post('/', async (req, res) => {
     try {
         const access = await newUsers.login(req, res);
         res.json(access);
