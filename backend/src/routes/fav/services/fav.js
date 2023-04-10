@@ -2,18 +2,12 @@ const axios = require('axios');
 const {Favorite} = require('../../../database/DB_connection');
 
 class Fav {
-  constructor(){
-    this.fav = []
-  }
-
-  thisCharacter(id){
-    return this.fav.findIndex(character => character.id == id);
-  }
+  constructor(){}
 
   async addFavorite(req, res){
-    const { character } = req.body;
+    const character = req.body;
     const { name, origin, status, image, species, gender } = character;
-
+    
     if(name&&origin&&status&&image&&species&&gender) {
       const [favorite, created] = await Favorite.findOrCreate({
         where: { name },
@@ -22,26 +16,27 @@ class Fav {
       if(created) {
         return favorite;
       } else {
-        res.status(400).json({message:'Ya esta agregado a favoritos'});
+        return res.status(400).json({message:'Ya esta agregado a favoritos'});
       }
+    }
+  }
+
+  async findFavorites(){
+    const fav = await Favorite.findAll();
+    if(fav.length > 0) {
+      return fav;
+    }
+  }
+
+  async deleteFavorites(req, res) {
+    const { id } = req.params;
+    const favorite = await Favorite.findByPk(id);
+    if(favorite) {
+      await favorite.destroy();
+      return this.findFavorites();
     } else {
-      res.status(400).json({message:'No se pudo agregar a favoritos, faltan datos'});
+      throw Error(`El personaje con id ${id} no se encuentra en favoritos`);
     }
-  }
-
-  findFavorites(){
-    if(this.fav) {
-      return this.fav;
-    }
-    throw 'No hay personajes en favoritos';
-  }
-
-  deleteFavorites(id) {
-    if(this.thisCharacter(id) >= 0) {
-      const index = this.thisCharacter(id)
-      return this.fav.splice(index, 1);
-    }
-    throw 'No esta en favoritos';
   }
 }
 

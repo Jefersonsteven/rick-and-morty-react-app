@@ -11,10 +11,12 @@ function Cards() {
    return (
       
       <div className='characteres-container'>
-         {characters.map(({ id, name, species, gender, image }) => <Card 
+         {characters.map(({ id, name, origin, status, image, species, gender }) => <Card 
             key={id}
             id={id}
             name={name}
+            origin={origin}
+            status={status}
             species={species}
             gender={gender}
             image={image}

@@ -5,9 +5,9 @@ const routerApi = require("../routes");
 const { conn } = require('../database/DB_connection');
 const app = express();
 
-const PORT =  process.env.PORT || 3001;
+const PORT =  process.env.PORT || 3009;
 
-conn.sync({force: true})
+conn.sync({alter: true})
     .then(() => {
         app.use(express.json());
         app.use(cors()); 

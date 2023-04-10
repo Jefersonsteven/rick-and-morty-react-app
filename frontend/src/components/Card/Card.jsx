@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorites, removeOfFavorites, getFavorites } from '../../redux/actions';
 import { useLocation } from 'react-router-dom';
 
-function Card({ onClose, id, name, species, gender, image }) {
+function Card({ onClose, id, name, origin, status, image, species, gender }) {
    const { pathname } = useLocation();
    const [ isFav, setIsFav ] = useState(false);
    const myFavorites = useSelector((state) => state.myFavorites);
@@ -18,19 +18,21 @@ function Card({ onClose, id, name, species, gender, image }) {
          dispatch(removeOfFavorites(id));
          setIsFav(false);
       } else {
-         dispatch(addToFavorites({ id, name, species, gender, image }));
+         dispatch(addToFavorites({ id, name, origin, status, image, species, gender }));
          setIsFav(true);
       }
    }
 
-   useEffect(() => {
-      for (let i = 0; i < myFavorites.length; i++) {
-         const element = myFavorites[i];
-         if(element.id === id) {
-            setIsFav(true);
-         }
-      }
-   }, [myFavorites]);
+   // useEffect(() => {
+   //    for (let i = 0; i < myFavorites.length; i++) {
+   //       if(myFavorites.length > 0) {
+   //          const element = myFavorites[i];
+   //          if(element.name === name) {
+   //             setIsFav(true);
+   //          }
+   //       }
+   //    }
+   // }, [myFavorites]);
 
    return (
       <div className='card'>
@@ -40,7 +42,6 @@ function Card({ onClose, id, name, species, gender, image }) {
          {pathname === '/home' &&
             <button onClick={() => {
                onClose(id);
-               dispatch(removeOfFavorites(id));
             }}
             >
                <IconClose />

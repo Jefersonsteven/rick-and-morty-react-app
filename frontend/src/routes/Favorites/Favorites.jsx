@@ -48,11 +48,13 @@ class Favorites extends Component {
             </select>
           </div>}
           <div className='Favorites-container' >
-            {this.props.myFavorites?.map(({ id, name, species, gender, image }) => {
+            {this.props.myFavorites?.map(({ id, name, origin, status, image, species, gender }) => {
               return <Card
                 key={id}
                 id={id}
                 name={name}
+                origin={origin}
+                status={status}
                 species={species}
                 gender={gender}
                 image={image}

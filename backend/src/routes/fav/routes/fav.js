@@ -1,47 +1,45 @@
-const Fav = require('../services/fav');
+const Fav = require("../services/fav");
 const newFav = new Fav();
-const express = require('express');
+const express = require("express");
 const fav = express.Router();
 
-
-fav.post('/', (req, res) => {
-  const addFavorite = newFav.addFavorite(req, res);
-  if(addFavorite){
-    return res.status(201).json({
-      message: 'add to favorite',
-      data: body,
+fav.post("/", async (req, res) => {
+  try {
+    const favorite = await newFav.addFavorite(req, res);
+    res.status(201).json({
+      message: "Add",
+      data: favorite
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
     });
   }
-  res.status(500).json({
-    message: 'error'
-  })
-})
+});
 
-fav.get('/', (req, res) => {
-  const favorites = newFav.findFavorites();
+fav.get("/", async (req, res) => {
   try {
+    const favorites = await newFav.findFavorites();
     res.json(favorites);
   } catch (error) {
     res.status(404).json({
-      message: error
-    })
+      message: error.message,
+    });
   }
+});
 
-})
-
-fav.delete('/:id', (req, res) => {
-  const { id } = req.params;
+fav.delete("/:id", async (req, res) => {
   try {
-    newFav.deleteFavorites(id);
+    const id = await newFav.deleteFavorites(req, res);
     res.json({
-      message: 'deleted',
+      message: "deleted",
       id: id,
-    })
+    });
   } catch (error) {
     res.status(404).json({
-      message: error
-    })
+      message: error.message,
+    });
   }
-})
+});
 
 module.exports = fav;
