@@ -7,23 +7,26 @@ const app = express();
 
 const PORT =  process.env.PORT || 3001;
 
-conn.sync({alter: true})
-    .then(() => {
-        app.use(express.json());
-        app.use(cors()); 
-        app.listen(PORT);
-        routerApi(app);
-    })
+// {alter: true}
+conn.sync().then(() => {
+    app.use(express.json());
+    const whitelist = [
+        "http://localhost:3000",
+        "https://rickandmorty-jeffer.netlify.app",
+    ];
+    const options = {
+        origin: (origin, callback) => {
+            if (whitelist.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback("No permitido", false);
+            }
+        },
+    };
+    app.use(cors(options));
+    app.use(cors());
+    app.listen(PORT);
+    routerApi(app);
+});
 
 
-// const whitelist = ['http://localhost:3001', 'https://rickandmorty-jeffer.netlify.app'];
-// const options = {
-//   origin: (origin, callback) => {
-//     if(whitelist.includes(origin)) {
-//       callback(null, true)
-//     } else {
-//       callback('No permitido', false)
-//     }
-//   } 
-// }
-// app.use(cors(options));

@@ -3,8 +3,8 @@ export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const REMOVE_OF_FAVORITES = 'REMOVE_OF_FAVORITES';
 export const FILTER = 'FILTER_CARDS';
 export const ORDER = 'ORDER_CARDS';
-// const URL = 'https://rick-and-morty-react-api-jeffer.up.railway.app';
-const URL = 'http://localhost:3001';
+const URL = 'https://rick-and-morty-react-api-jeffer.up.railway.app';
+//const URL = 'http://localhost:3001';
 
 const getFavorites =  () => {
   return async (dispatch) => {
