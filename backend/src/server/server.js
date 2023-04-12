@@ -15,6 +15,14 @@ conn.sync({alter: true})
         routerApi(app);
     })
 
+// Error catching endware.
+app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+    const status = err.status || 500;
+    const message = err.message || err;
+    console.error(err);
+    res.status(status).send(message);
+});
+
 
 // const whitelist = ['http://localhost:3001', 'https://rickandmorty-jeffer.netlify.app'];
 // const options = {
