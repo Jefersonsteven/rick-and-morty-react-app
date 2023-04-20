@@ -25,7 +25,7 @@ conn.sync().then(() => {
     //         }
     //     },
     // };
-    app.use(cors(options));
+    //app.use(cors(options));
     app.use(cors());
     app.listen(PORT);
     routerApi(app);
