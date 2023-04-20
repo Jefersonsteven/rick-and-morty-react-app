@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom/client';
 import './index.scss'
+
 import { Home } from './routes/Home/Home'
 import { About } from './routes/About/About'
 import { Detail } from './routes/Detail/Detail'
@@ -9,8 +10,9 @@ import { Login } from './routes/Login/Login';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
 import Favorites from './routes/Favorites/Favorites';
+
+import { store } from './redux/store';
 
 
 const router = createBrowserRouter([
