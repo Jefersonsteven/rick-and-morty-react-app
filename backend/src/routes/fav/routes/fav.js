@@ -6,7 +6,6 @@ const fav = express.Router();
 fav.post("/", async (req, res) => {
   try {
     const favorite = await newFav.addFavorite(req, res);
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(201).json({
       message: 'Add',
       data: favorite
@@ -21,7 +20,6 @@ fav.post("/", async (req, res) => {
 fav.get("/", async (req, res) => {
   try {
     const favorites = await newFav.findFavorites();
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.json(favorites);
   } catch (error) {
     res.status(404).json({
@@ -33,7 +31,6 @@ fav.get("/", async (req, res) => {
 fav.delete("/:id", async (req, res) => {
   try {
     const id = await newFav.deleteFavorites(req, res);
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.json({
       message: "deleted",
       id: id,

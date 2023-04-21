@@ -29,7 +29,6 @@ conn.sync().then(() => {
     app.use(cors());
     app.listen(PORT);
     routerApi(app);
-    res.setHeader("Access-Control-Allow-Origin", "*");
 });
 
 // Error catching endware.
